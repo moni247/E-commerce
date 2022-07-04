@@ -16,7 +16,25 @@ h1 {
 }
 
 .navbar {
-  padding: 1.5rem 1rem;
+  padding: 1rem 1rem;
+}
+
+.big-nav-container {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  justify-content: right;
+}
+
+.menu-text li {
+  margin-right: 1rem;
+}
+
+.menu-box {
+  margin-left: 2rem;
+  margin-right: 1rem;
 }
 
 #cart {
@@ -25,5 +43,5 @@ h1 {
 }
 
 .hero {
-  width: 100%;
+  width: 100vw;
 }
