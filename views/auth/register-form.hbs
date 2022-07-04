@@ -1,0 +1,21 @@
+<div class="bg-navbar"></div>
+<div class="container loginForm">
+    <div class="container">
+        <h1>Register</h1>
+        <form action="/register" method="POST">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input required type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input required type="text" class="form-control" id="username" name="username" maxlength="10">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input required type="password" class="form-control" id="password" name="password">
+            </div>
+            <button type="submit" class="btn btn-outline-secondary">Submit</button>
+        </form>
+    </div>
+</div>
