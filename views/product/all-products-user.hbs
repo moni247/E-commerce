@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        {{#each products}}
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <a href="/products/women/{{id}}"><img src="{{images.[0]}}" class="card-img-top" alt="{{name}}"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">{{description}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
