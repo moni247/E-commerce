@@ -22,7 +22,7 @@ router.post('/products/create', (req, res, next) => {
 
     Product
         .create({ name, description, price, images, category })
-        .then(() => res.redirect('/product/all-products-admin'))
+        .then(() => res.redirect('/admin/products'))
         .catch(error => next(error))
 })
 
@@ -53,7 +53,7 @@ router.post('/:product_id/delete', (req, res, next) => {
 
     Product
         .findByIdAndDelete(product_id)
-        .then(() => res.redirect('/products'))
+        .then(() => res.redirect('/admin/products'))
         .catch(error => next(error))
 })
 

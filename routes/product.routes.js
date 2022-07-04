@@ -17,7 +17,6 @@ router.get('/:product_id', (req, res, next) => {
     Product
         .findById(product_id)
         .then(product => {
-            res.send('SOY DETALLES DE PRODUCTO')
             res.render('product/product-details', product)
     })
         .catch(error => next(error))
