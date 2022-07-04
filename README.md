@@ -3,7 +3,6 @@
 | HTTP method | URI path                     | Description                         | Protected | User type          |
 | ----------- | ---------------------------- | ----------------------------------- | --------- | ------------------ |
 | GET         | /                            | render index page                   | false     | visitor/user/admin |
-| GET         | /products                    | render all products                 | false     | visitor/user/admin |
 | GET         | /products/women              | render woman products               | false     | visitor/user/admin |
 | GET         | /products/women/:product\_id | render product details              | false     | visitor/user/admin |
 | GET         | /register                    | render register form                | false     | visitor/user/admin |
@@ -18,9 +17,10 @@
 | GET         | /profile/payment             | render invoice form                 | true      | user               |
 | GET         | /profile/payment/empty-cart  | render empty cart                   | true      | user               |
 | POST        | /profile/payment             | handle invoice form                 | true      | user               |
-| GET         | /payment-statement           | render the status of the payment    | true      | user               |
+| GET         | /payment/statement           | render the status of the payment    | true      | user               |
 | GET         | /profile/admin/create        | handle register form create product | true      | admin              |
 | POST        | /profile/admin/create        | handle register form create product | true      | admin              |
+| GET         | /products/admin              | render all products(edit/delete)    | true      | admin              |
 | GET         | /profile/admin/edit          | render register form edit product   | true      | admin              |
 | POST        | /profile/admin/delete        | delete products                     | true      | admin              |
 | POST        | /profile/admin/edit          | handle register form edit product   | true      | admin              |
