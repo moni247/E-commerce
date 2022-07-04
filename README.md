@@ -1,4 +1,4 @@
-# E-commerce
+# e-commerce
 
 | HTTP method | URI path                     | Description                         | Protected | User type          |
 | ----------- | ---------------------------- | ----------------------------------- | --------- | ------------------ |
