@@ -1,9 +1,9 @@
 const router = require("express").Router()
 
 const User = require("./../models/User.model")
+const Cart = require("../models/Cart.model")
 
 const bcrypt = require('bcryptjs')
-const CartModel = require("../models/Cart.model")
 const saltRounds = 10
 
 router.get("/register", (req, res, next) => res.render("auth/register-form"))

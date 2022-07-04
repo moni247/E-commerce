@@ -1,3 +1,36 @@
 <div class="container">
-    <h1>Create New Product</h1>
+    <div class="row">
+        <form action="/" method="POST">
+            <div class="col-6">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{images.[0]}}" class="img-fluid rounded-start" alt="{{name}} product images">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">{{name}}</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default">
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-text">{{description}}</span>
+                                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">€</span>
+                                    <span class="input-group-text">{{price}}</span>
+                                    <input type="text" class="form-control"
+                                        aria-label="Dollar amount (with dot and two decimal places)">
+                                    <button type="button" class="btn btn-outline-dark">Create</button>
+                                </div>
+                                <p class="card-text"><small class="text-muted"></small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
