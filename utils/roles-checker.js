@@ -1,8 +1,5 @@
-const rolesChecker = user => {
-    return {
-        isAdmin: user?.role === 'ADMIN',
-        isUser: user?.role === 'USER'
-    }
-}
+const isAdmin = user => user.role === 'ADMIN'
+const isUser = user => user.role === 'USER'
+const isLogged = (req, res) => req.session.currentUser
 
-module.exports = { rolesChecker }
+module.exports = { isAdmin, isUser, isLogged }

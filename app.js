@@ -1,3 +1,5 @@
+const { isLogged } = require('./utils/roles-checker')
+
 require("dotenv/config");
 
 require("./db");
@@ -11,7 +13,11 @@ const app = express();
 require("./config/session.config")(app)
 require("./config")(app);
 
-const projectName = "nike";
+const projectName = 'Nike | Shop'
+app.locals.appTitle = `${projectName}`
+
+app.locals.globalIsLogin = false
+
 
 const index = require("./routes/index.routes");
 app.use("/", index);
