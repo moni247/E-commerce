@@ -2,13 +2,14 @@ const router = require("express").Router()
 
 const User = require("./../models/User.model")
 const Cart = require("../models/Cart.model")
+const { isLoggedIn, isLoggedOut, checkRole } = require("../middleware/route-guard")
 
 const bcrypt = require('bcryptjs')
 const saltRounds = 10
 
-router.get("/register", (req, res, next) => res.render("auth/register-form"))
+router.get("/register", isLoggedOut, (req, res, next) => res.render("auth/register-form"))
 
-router.post("/register", (req, res, next) => {
+router.post("/register", isLoggedOut, (req, res, next) => {
 
     const { username, email, password: plainPassword } = req.body
 
@@ -20,14 +21,14 @@ router.post("/register", (req, res, next) => {
             Cart.create({ user: req.session.currentUser })
             console.log('currentUser', req.session.currentUser)
         })
-        .then(() => res.redirect("/"))
+        .then(() => res.redirect("/login"))
         .catch(error => next(error))
 
 })
 
-router.get("/login", (req, res, next) => res.render("auth/login-form"))
+router.get("/login", isLoggedOut, (req, res, next) => res.render("auth/login-form"))
 
-router.post("/login", (req, res, next) => {
+router.post("/login", isLoggedOut, (req, res, next) => {
 
     const { email, password } = req.body
 
@@ -48,7 +49,7 @@ router.post("/login", (req, res, next) => {
         .catch(error => next(error))
 })
 
-router.post('/logout', (req, res) => {
+router.post('/logout', isLoggedIn, (req, res) => {
     req.session.destroy()
     res.redirect('/')
 })

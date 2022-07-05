@@ -5,7 +5,7 @@
         </div>
         <div class="col">
             <h1>Create New Product</h1>
-            <form action="/admin/products/create" method="POST">
+            <form action="/admin/products/create" method="POST" enctype="multipart/form-data">
                 <div class="row mb-1">
                     <div class="col">
                         <div class="form-outline">
@@ -28,8 +28,8 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="inputGroupFile02">
-                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                    <label for="formFile" class="input-group-text">Upload</label>
+                    <input class="form-control" type="file" id="formFile" name="imgUrl">
                 </div>
 
                 <div class="input-group mb-3">

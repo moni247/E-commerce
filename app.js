@@ -11,10 +11,7 @@ const app = express();
 require("./config/session.config")(app)
 require("./config")(app);
 
-const capitalized = require("./utils/capitalized");
 const projectName = "nike";
-
-app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
 const index = require("./routes/index.routes");
 app.use("/", index);
