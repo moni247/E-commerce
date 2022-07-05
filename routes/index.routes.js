@@ -10,4 +10,6 @@ router.use('/products/women', require('./product.routes'))
 
 router.use('/admin', require('./admin.routes'))
 
+router.use('/profile', require('./profile.routes'))
+
 module.exports = router

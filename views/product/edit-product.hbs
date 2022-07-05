@@ -1,9 +1,8 @@
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <img src="" alt="">
+    <div class="row mb-5">
+        <div class="col-3">
         </div>
-        <div class="col">
+        <div class="col-6">
             <h1>Edit Product</h1>
             <form action="/admin/{{id}}/edit" method="POST" enctype="multipart/form-data">
                 <div class="row mb-1">
@@ -28,11 +27,11 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <label for="formFile" class="input-group-text">Upload</label>
                     <input class="form-control" type="file" id="formFile" name="imgUrl">
+                    <label for="formFile" class="input-group-text">Upload</label>
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="input-group mb-4">
                     <label class="input-group-text" for="inputGroupSelect01">Category</label>
                     <select class="form-select" id="inputGroupSelect01">
                         <option selected>Choose...</option>
@@ -42,15 +41,16 @@
                     </select>
                 </div>
 
-                <div class="form-check d-flex justify-content-center mb-4">
-                    <input class="form-check-input me-2" type="checkbox" id="form6Example8" checked />
-                    <label class="form-check-label" for="form6Example8"> Create product? </label>
+                <div class="form-check d-flex justify-content-center mb-3">
+                    <input class="form-check-input me-2" type="checkbox" id="checkbox" checked>
+                    <label class="form-check-label" for="checkbox">Create product?</label>
                 </div>
-
-                <button type="submit" class="btn btn-primary btn-block mb-4">Edit</button>
-
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button type="submit" class="btn btn btn-outline-dark btn-block mb-4">Edit</button>
+                </div>
             </form>
-
+        </div>
+        <div class="col-3">
         </div>
     </div>
 </div>
