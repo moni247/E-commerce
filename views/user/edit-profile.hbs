@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col-6">
+            <h1>Hi, {{name}}</h1>
+            <form action="/admin/{{id}}/edit" method="POST" enctype="multipart/form-data">
+                <div class="row mb-1">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="name"></label>
+                            <input type="text" id="name" class="form-control" name="name" value="{{name}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="name"></label>
+                            <input type="text" id="name" class="form-control" name="name" value="{{email}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <label for="formFile" class="input-group-text">Upload</label>
+                    <input class="form-control" type="file" id="formFile" name="imgUrl">
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-4">
+                    <input class="form-check-input me-2" type="checkbox" id="form6Example8" checked />
+                    <label class="form-check-label" for="form6Example8"> Edit profile </label>
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block mb-4">Edit</button>
+
+            </form>
+        </div>
+        <div class="col-3">
+        </div>
+    </div>
+</div>

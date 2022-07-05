@@ -1,0 +1,16 @@
+<div class="bg-navbar"></div>
+{{#with user}}
+<div class="profileHeader">
+    <div class="primaryInfo">
+        <div class="displayFlex">
+            <img src="{{image}}" alt="{{username}}'s profile image">
+            <div class="personalInfo">
+                <h1>{{username}}</h1>
+                <p>{{email}}</p>
+                <p>{{country}}</p>
+                <p>{{postalCode}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{{/with}}

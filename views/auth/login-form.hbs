@@ -11,5 +11,10 @@
             <input required type="password" class="form-control" id="password" name="password">
         </div>
         <button type="submit" class="btn btn-outline-secondary">Submit</button>
+        {{#if errorMessage}}
+        <div id="errorMessage">
+            <p>{{errorMessage}}</p>
+        </div>
+        {{/if}}
     </form>
 </div>
