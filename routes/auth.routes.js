@@ -11,14 +11,14 @@ router.get("/register", (req, res, next) => res.render("auth/register-form"))
 router.post("/register", (req, res, next) => {
 
     const { username, email, password: plainPassword } = req.body
-    const { _id: user } = req.session.currentUser
 
     bcrypt
         .genSalt(saltRounds)
         .then(salt => bcrypt.hash(plainPassword, salt))
         .then(hashedPassword => {
             User.create({ username, email, password: hashedPassword })
-            Cart.create({ user, items })
+            Cart.create({ user: req.session.currentUser })
+            console.log('currentUser', req.session.currentUser)
         })
         .then(() => res.redirect("/"))
         .catch(error => next(error))
@@ -49,7 +49,8 @@ router.post("/login", (req, res, next) => {
 })
 
 router.post('/logout', (req, res) => {
-    req.session.destroy(() => res.redirect('/'))
+    req.session.destroy()
+    res.redirect('/')
 })
 
 
