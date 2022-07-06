@@ -15,10 +15,10 @@ router.get('/:user_id', isLoggedIn, (req, res, next) => {
     User
         .findById(user_id)
         .then(user => {
-            if (user.role === 'USER')
-                res.render('profile/user-profile', { user })
-            else (user.role === 'ADMIN')
-            res.render('profile/admin-profile', { user })
+
+            const viewName = user.role === 'USER' ? 'user-profile' : 'admin-profile'
+
+            res.render(`profile/${viewName}`, { user })
         })
         .catch(error => next(new Error(error)))
 })

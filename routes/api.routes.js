@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     Store
         .find()
         .then(stores => res.json(stores))
-        .catch(err => res.json({ Message: 'server error', err }))
+        .catch(err => res.status(500).json({ message: 'server error', err }))
 })
 
 module.exports = router

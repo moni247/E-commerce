@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
     Product
         .find()
         .then(products => res.render('product/all-products-user', { products }))
-        .catch(error => next(error))
+        .catch(error => next(new Error(error)))
 })
 
 router.get('/:product_id', (req, res, next) => {
@@ -19,7 +19,7 @@ router.get('/:product_id', (req, res, next) => {
         .then(product => {
             res.render('product/product-details', product)
         })
-        .catch(error => next(error))
+        .catch(error => next(new Error(error)))
 })
 
 module.exports = router
