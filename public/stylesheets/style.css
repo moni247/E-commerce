@@ -49,3 +49,13 @@ h1 {
 .edit-product {
   margin-top: 3rem;
 }
+
+#my-map {
+  margin-top: 2rem;
+  height: 25rem;
+  background-color: red;
+}
+
+.map {
+  margin-bottom: 5rem;
+}
