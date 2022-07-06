@@ -24,9 +24,9 @@ function getStoresFromDB() {
 
 
 function printMarkers(stores) {
-    stores.forEach(stores => {
+    stores.forEach(store => {
 
-        let position = { lat: place.location.coordinates[0], lng: place.location.coordinates[1] }
+        let position = { lat: store.location.coordinates[0], lng: store.location.coordinates[1] }
 
         new google.maps.Marker({ position, map })
     })

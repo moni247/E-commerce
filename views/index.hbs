@@ -1,5 +1,5 @@
 <div>
-    <figure>
+    <figure class="mb-5">
         <video class="hero" src="./video/homeVideo.mp4" autoplay="autoplay" muted loop>
             Your browser does not support the video element.
         </video>
@@ -8,6 +8,7 @@
 
 <div class="container map">
     <h2>Nike Stores Close to You</h2>
+    <hr>
     <div class="row">
         <div class="col-md-7">
             <figure>
@@ -23,7 +24,7 @@
             <p>{{address.city}}, {{address.postalCode}}, {{address.country}}</p>
             <span>Close at {{schedule}} </span>
             <hr>
-            {{#each stores}}
+            {{/each}}
         </div>
     </div>
 </div>
@@ -31,5 +32,4 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/mapStyles.js"></script>
 <script src="/js/map-stores.js"></script>
-
 <script src="https://maps.googleapis.com/maps/api/js?&callback=init"></script>

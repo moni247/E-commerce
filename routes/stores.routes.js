@@ -2,15 +2,15 @@ const router = require('express').Router()
 const Store = require('../models/Store.model')
 const { isLoggedIn, checkRole } = require('../middleware/route-guard')
 
-router.get('/stores/create', isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
+router.get('/create', isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
     res.render('store/new-store')
 })
 
-router.post("/stores/create", isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
+router.post("/create", isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
+
     const { name, address, schedule, latitude, longitude } = req.body
 
     const location = {
-
         type: 'Point',
         coordinates: [latitude, longitude]
     }
@@ -18,12 +18,12 @@ router.post("/stores/create", isLoggedIn, checkRole('ADMIN'), (req, res, next) =
     Store
         .create({ name, address, schedule, location })
         .then(() => {
-            res.redirect("/stores")
+            res.redirect('/admin/stores')
         })
         .catch(err => console.log(err))
 })
 
-router.get("/stores", (req, res, next) => {
+router.get("/", (req, res, next) => {
 
     Store
         .find()
@@ -31,7 +31,7 @@ router.get("/stores", (req, res, next) => {
         .catch(err => console.log(err))
 })
 
-router.get("/stores/:store_id/edit", (req, res, next) => {
+router.get("/:store_id/edit", (req, res, next) => {
     const { store_id } = req.params
 
     Store
@@ -41,7 +41,7 @@ router.get("/stores/:store_id/edit", (req, res, next) => {
 
 })
 
-router.post("/stores/:store_id/edit", (req, res, next) => {
+router.post("/:store_id/edit", (req, res, next) => {
     const { store_id } = req.params
     const { name, address, schedule, latitude, longitude } = req.body
 
@@ -59,7 +59,7 @@ router.post("/stores/:store_id/edit", (req, res, next) => {
 
 })
 
-router.get("/stores/:store_id/delete", (req, res, next) => {
+router.get("/:store_id/delete", (req, res, next) => {
     const { store_id } = req.params
 
     Store
