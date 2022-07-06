@@ -5,3 +5,31 @@
         </video>
     </figure>
 </div>
+
+<div class="container map">
+    <h2>Nike Stores Close to You</h2>
+    <div class="row">
+        <div class="col-md-7">
+            <figure>
+                <div id="my-map"></div>
+            </figure>
+        </div>
+        <div class="col-1"></div>
+
+        <div class="col-md-4">
+            {{#each stores}}
+            <h3>{{name}}</h3>
+            <p>{{address.street}}, {{address.number}}</p>
+            <p>{{address.city}}, {{address.postalCode}}, {{address.country}}</p>
+            <span>Close at {{schedule}} </span>
+            <hr>
+            {{#each stores}}
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/mapStyles.js"></script>
+<script src="/js/map-stores.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?&callback=init"></script>
