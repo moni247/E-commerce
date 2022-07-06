@@ -8,6 +8,9 @@
                     <h5 class="card-title">{{name}}</h5>
                     <p class="card-text">{{description}}</p>
                 </div>
+                <form action="/add-product-to-cart/{{id}}" method="POST">
+                    <input type="submit" class="btn btn btn-outline-dark btn-block mb-4" value="Add to cart">
+                </form>
             </div>
         </div>
         {{/each}}

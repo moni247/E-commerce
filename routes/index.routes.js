@@ -21,5 +21,7 @@ router.use('/profile', require('./profile.routes'))
 //api
 router.use('/api', require('./api.routes'))
 
+router.use('/', require('./cart.routes'))
+
 
 module.exports = router

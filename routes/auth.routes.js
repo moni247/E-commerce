@@ -16,12 +16,8 @@ router.post("/register", isLoggedOut, (req, res, next) => {
     bcrypt
         .genSalt(saltRounds)
         .then(salt => bcrypt.hash(plainPassword, salt))
-        .then(hashedPassword => {
-            return Promise.all([
-                User.create({ username, email, password: hashedPassword }),
-                Cart.create({ user: req.session.currentUser })
-            ])
-        })
+        .then(hashedPassword => User.create({ username, email, password: hashedPassword }))
+        .then(newUser => Cart.create({ user: newUser._id }))
         .then(() => res.redirect("/login"))
         .catch(error => next(new Error(error)))
 
