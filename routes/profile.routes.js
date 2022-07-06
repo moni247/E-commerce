@@ -8,15 +8,19 @@ const uploader = require('../config/cloudinary.config')
 const { isLoggedIn, checkRole } = require('../middleware/route-guard')
 const { rolesChecker } = require('./../utils/roles-checker')
 
-router.get('/:user_id', isLoggedIn, checkRole('USER', 'ADMIN'), (req, res, next) => {
+router.get('/:user_id', isLoggedIn, (req, res, next) => {
 
-    const { _id } = req.session.currentUser
+    const { user_id } = req.params
 
     User
         .findById(user_id)
         .then(user => {
-            if(user.role) false
+            if (user.role === 'USER')
+                res.render('profile/user-profile', { user })
+            else (user.role === 'ADMIN')
+            res.render('profile/admin-profile', { user })
         })
+        .catch(error => next(new Error(error)))
 })
 
 module.exports = router

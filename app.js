@@ -11,6 +11,7 @@ const hbs = require("hbs");
 const app = express();
 
 require("./config/session.config")(app)
+
 require("./config")(app);
 
 const projectName = 'Nike | Shop'
@@ -18,10 +19,11 @@ app.locals.appTitle = `${projectName}`
 
 app.locals.globalIsLogin = false
 
+app.locals.userId
 
 const index = require("./routes/index.routes");
-app.use("/", index);
 
+app.use("/", index);
 
 require("./error-handling")(app);
 

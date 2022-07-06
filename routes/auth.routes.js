@@ -22,7 +22,7 @@ router.post("/register", isLoggedOut, (req, res, next) => {
             console.log('currentUser', req.session.currentUser)
         })
         .then(() => res.redirect("/login"))
-        .catch(error => next(error))
+        .catch(error => next(new Error(error)))
 
 })
 
@@ -36,21 +36,23 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         .findOne({ email })
         .then(user => {
             if (!user) {
-                res.render("auth/login-form", { errorMessage: "User not registered" })
+                res.render("auth/login-form", { errorMessage: "The username doesn't exist." })
                 return
             } else if (bcrypt.compareSync(password, user.password) === false) {
                 res.render("auth/login-form", { errorMessage: "Incorret password" })
                 return
             } else {
-
+                req.app.locals.globalIsLogin = true
+                req.app.locals.userId = user.id
                 req.session.currentUser = user
                 res.redirect("/")
             }
         })
-        .catch(error => next(error))
+        .catch(error => next(new Error(error)))
 })
 
 router.post('/logout', isLoggedIn, (req, res) => {
+    req.app.locals.globalIsLogin = false
     req.session.destroy()
     res.redirect('/')
 })

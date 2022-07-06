@@ -1,6 +1,7 @@
 const router = require("express").Router()
 
 router.get("/", (req, res, next) => {
+  console.log('current', req.session.currentUser)
   res.render("index");
 })
 
