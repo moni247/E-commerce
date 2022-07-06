@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+            <h1>Create New Store</h1>
+            <form action="/stores/create" method="POST" enctype="multipart/form-data">
+                <div class="row mb-1">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="name"></label>
+                            <input type="text" id="name" class="form-control" name="name" placeholder="Name">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-outline mb-3">
+                    <label class="form-label" for="address"></label>
+                    <textarea class="form-control" id="address" rows="4" name="address"
+                        placeholder="Address"></textarea>
+                </div>
+
+                <div class="form-outline mb-3">
+                    <label class="form-label" for="schedule"></label>
+                    <textarea class="form-control" id="schedule" rows="4" name="schedule"
+                        placeholder="Schedule"></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                            <label class="form-label" for="latitude"></label>
+                            <textarea class="form-control" id="latitude" rows="4" name="latitude"
+                                placeholder="Latitude"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-outline mb-3">
+                            <label class="form-label" for="longitude"></label>
+                            <textarea class="form-control" id="longitude" rows="4" name="longitude"
+                                placeholder="Longitude"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block mb-4">Create</button>
+
+                <div class="col-3">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
