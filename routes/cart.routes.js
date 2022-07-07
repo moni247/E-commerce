@@ -14,7 +14,7 @@ router.get('/profile/:user_id/payment', isLoggedIn, checkRole('USER'), (req, res
 
             let total = 0
             let inCart = cart.items.length
-        
+
             cart.items.forEach(item => {
                 total += Number(item.product.price)
             })
@@ -38,10 +38,5 @@ router.post('/add-to-cart/:product_id', isLoggedIn, checkRole('USER'), (req, res
         .catch(error => next(new Error(error)))
 
 })
-
-
-
-
-
 
 module.exports = router
