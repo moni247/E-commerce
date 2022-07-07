@@ -46,14 +46,14 @@
                         Your Nike
                      </a>
                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {{#if globalIsLogin}}
+                        {{#if globalIsLoggedIn}}
                         <li><a class="dropdown-item" href="/profile/{{userId}}">Profile</a></li>
                         {{/if}}
-                        {{#unless globalIsLogin}}
+                        {{#unless globalIsLoggedIn}}
                         <li><a class="dropdown-item" href="/register">Sign Up</a></li>
                         <li><a class="dropdown-item" href="/login">Log In</a></li>
                         {{/unless}}
-                        {{#if globalIsLogin}}
+                        {{#if globalIsLoggedIn}}
                         <li>
                            <hr class="dropdown-divider">
                         </li>
@@ -67,7 +67,7 @@
                   </li>
             </div>
             <div class="menu-box">
-               <a class="navbar-brand " href="##">
+               <a class="navbar-brand " href="/profile/{{userId}}/payment">
                   <img id="cart"
                      src="https://res.cloudinary.com/da1iyocf4/image/upload/v1657029464/project-nike/box-icon_1_nyaxmx.png"
                      alt="cart" width="30" height="24">
@@ -79,7 +79,6 @@
    </nav>
 
    {{{body}}}
-
 
    <footer class="bg-dark text-center text-white bottom">
       <div class="container p-4">

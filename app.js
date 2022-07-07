@@ -12,9 +12,11 @@ require("./config")(app);
 const projectName = 'Nike | Shop'
 app.locals.appTitle = `${projectName}`
 
-app.locals.globalIsLogin = false
+app.locals.globalIsLoggedIn = false
 
 app.locals.userId
+
+// app.locals.infoUser
 
 const index = require("./routes/index.routes");
 

@@ -39,9 +39,10 @@ router.post("/login", isLoggedOut, (req, res, next) => {
                 res.render("auth/login-form", { errorMessage: "Incorret password" })
                 return
             } else {
-                req.app.locals.globalIsLogin = true
+                req.app.locals.globalIsLoggedIn = true
                 req.app.locals.userId = user.id
                 req.session.currentUser = user
+                // req.app.locals.infoUser = user
                 res.redirect("/")
             }
         })
@@ -49,7 +50,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 })
 
 router.post('/logout', isLoggedIn, (req, res) => {
-    req.app.locals.globalIsLogin = false
+    req.app.locals.globalIsLoggedIn = false
     req.session.destroy()
     res.redirect('/')
 })

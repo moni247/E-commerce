@@ -1,6 +1,6 @@
 const isLoggedIn = (req, res, next) => {
     if (!req.session.currentUser) {
-        req.app.locals.globalIsLogin = false
+        req.app.locals.globalIsLoggedIn = false
         return res.render('auth/login-form', { errorMessage: 'Please log in to continue' })
     }
     next()
@@ -8,7 +8,7 @@ const isLoggedIn = (req, res, next) => {
 
 const isLoggedOut = (req, res, next) => {
     if (req.session.currentUser) {
-        req.app.locals.globalIsLogin = true
+        req.app.locals.globalIsLoggedIn = true
         return res.redirect('/')
     }
     next()

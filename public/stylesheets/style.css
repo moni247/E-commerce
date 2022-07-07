@@ -53,9 +53,22 @@ h1 {
 #my-map {
   margin-top: 2rem;
   height: 25rem;
-  background-color: red;
+  background-color: gray;
 }
 
 .map {
   margin-bottom: 5rem;
+}
+
+/* cart styles */
+.receipt {
+  margin-top: 1rem;
+}
+
+.card-registration .select-arrow {
+  top: 13px;
+}
+
+.bg-grey {
+  background-color: #eae8e8;
 }
