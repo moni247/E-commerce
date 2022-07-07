@@ -9,7 +9,7 @@ router.use("/", require("./base.routes"))
 //auth routes
 router.use("/", require("./auth.routes"))
 
-//render products-list
+//render products-list and product-details
 router.use('/products/women', require('./product.routes'))
 
 //admin routes

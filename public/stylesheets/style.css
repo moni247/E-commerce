@@ -42,6 +42,12 @@ h1 {
   height: 3rem;
 }
 
+.empty-img img {
+  width: 50%;
+  margin-left: 17rem;
+}
+
+
 .hero {
   width: 98.9vw;
 }
