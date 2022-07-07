@@ -74,6 +74,15 @@ h1 {
   width: 60%;
 }
 
+.icons-footer {
+  width: 30px;
+}
+
+#carousel-index {
+  padding-bottom: 5rem;
+}
+
+
 #my-map {
   margin-top: 2rem;
   height: 25rem;
@@ -99,7 +108,7 @@ footer {
 }
 
 .bg-grey {
-  background-color: #eae8e8;
+  background-color: #ffffff;
 }
 
 @media (max-width: 767px) {
