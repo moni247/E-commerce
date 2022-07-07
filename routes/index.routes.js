@@ -18,10 +18,10 @@ router.use('/admin', require('./admin.routes'))
 //profile routes
 router.use('/profile', require('./profile.routes'))
 
-//api
-router.use('/api', require('./api.routes'))
-
+//cart routes
 router.use('/', require('./cart.routes'))
 
+//api
+router.use('/api', require('./api.routes'))
 
 module.exports = router
