@@ -2,6 +2,7 @@ const router = require('express').Router()
 const Store = require('../models/Store.model')
 const { isLoggedIn, checkRole } = require('../middleware/route-guard')
 
+//new store
 router.get('/create', isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
     res.render('store/new-store')
 })
@@ -21,6 +22,7 @@ router.post("/create", isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
+//stores list
 router.get("/", (req, res, next) => {
 
     Store
@@ -29,6 +31,7 @@ router.get("/", (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
+//edit store
 router.get("/:store_id/edit", (req, res, next) => {
 
     const { store_id } = req.params
@@ -57,6 +60,7 @@ router.post("/:store_id/edit", (req, res, next) => {
 
 })
 
+//delete store
 router.get("/:store_id/delete", (req, res, next) => {
 
     const { store_id } = req.params

@@ -31,11 +31,11 @@ router.get('/:user_id/edit', isLoggedIn, checkRole('USER', 'ADMIN'), (req, res, 
 
     Product
         .findById(user_id)
-        .then(user => res.render('profile/edit-profile', user))
+        .then(user => res.render('profile/edit-profile', { user }))
         .catch(error => next(new Error(error)))
 })
 
-router.post('/:user_id/edit', isLoggedIn, uploader.single('imgUrl'), checkRole('USER', 'ADMIN'), (req, res, next) => {
+router.post('/:user_id/edit', isLoggedIn, checkRole('USER', 'ADMIN'), (req, res, next) => {
 
     const { username, email } = req.body
     const { user_id } = req.params
@@ -44,6 +44,6 @@ router.post('/:user_id/edit', isLoggedIn, uploader.single('imgUrl'), checkRole('
         .findByIdAndUpdate(user_id, { username, email, email, image: [req.file.path] })
         .then(user => res.redirect(`/profile/${user._id}`))
         .catch(error => next(new Error(error)))
-}) 
+})
 
 module.exports = router
