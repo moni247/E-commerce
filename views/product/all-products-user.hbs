@@ -1,18 +1,24 @@
-<div class="container">
-    <div class="row">
-        {{#each products}}
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <a href="/products/women/{{id}}"><img src="{{images.[0]}}" class="card-img-top" alt="{{name}}"></a>
-                <div class="card-body">
-                    <h5 class="card-title">{{name}}</h5>
-                    <p class="card-text">{{description}}</p>
+<section class="section-products">
+    <div class="container">
+        <div class="row">
+            {{#each products}}
+            <div class="col-md-3">
+                <div id="product-1" class="single-product">
+                    <div class="part-1">
+                        <a href="/products/women/{{id}}">
+                            <img src="{{images.[0]}}" class="img-fluid rounded-start" alt="{{name}} product images">
+                        </a>
+                    </div>
+                    <div class="part-2">
+                        <h3 class="product-title">{{name}}</h3>
+                        <h4 class="product-price">{{price}}€</h4>
+                    </div>
+                    <form action="/add-to-cart/{{id}}" method="POST">
+                        <input type="submit" class="btn btn btn-outline-dark btn-block mb-4" value="Add to cart">
+                    </form>
                 </div>
-                <form action="/add-to-cart/{{id}}" method="POST">
-                    <input type="submit" class="btn btn btn-outline-dark btn-block mb-4" value="Add to cart">
-                </form>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
-</div>
+</section>

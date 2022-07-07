@@ -1,43 +1,35 @@
-<div class="container">
-    <div class="row">
-        <div class="col-3">
-        </div>
-        <div class="col-6">
-            <h1>Hi, {{name}}</h1>
-            <form action="/admin/{{id}}/edit" method="POST" enctype="multipart/form-data">
-                <div class="row mb-1">
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="name"></label>
-                            <input type="text" id="name" class="form-control" name="name" value="{{name}}">
+<div class="container rounded bg-white mt-5 mb-5">
+    <form action="/profile/{{id}}/edit" method="POST">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150px" src={{image}}><span
+                        class="font-weight-bold">{{username}}</span><span class="text-black-50">{{email}}</span><span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels"></label>
+                            <input type="text" class="form-control" placeholder="first name" value="{{username}}">
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <label class="labels"></label>
+                                <input type="text" class="form-control" placeholder="enter email id" value="{{email}}">
+                            </div>
+                            <div class="mt-5 text-center">
+                                <button type="submit" class="btn btn-primary profile-button" type="button">Edit
+                                    profile</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="row mb-1">
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="name"></label>
-                            <input type="text" id="name" class="form-control" name="name" value="{{email}}">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="input-group mb-3">
-                    <label for="formFile" class="input-group-text">Upload</label>
-                    <input class="form-control" type="file" id="formFile" name="imgUrl">
-                </div>
-
-                <div class="form-check d-flex justify-content-center mb-4">
-                    <input class="form-check-input me-2" type="checkbox" id="form6Example8" checked />
-                    <label class="form-check-label" for="form6Example8"> Edit profile </label>
-                </div>
-
-                <button type="submit" class="btn btn-dark btn-block mb-4">Edit</button>
-
-            </form>
+            </div>
         </div>
-        <div class="col-3">
-        </div>
-    </div>
+    </form>
 </div>

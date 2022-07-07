@@ -30,11 +30,15 @@
                                                     <i class="fas fa-minus"></i>
                                                 </button>
 
-                                                <select class="form-control form-control-sm" id="format" onchange={{action 'updateValue' }}>
+                                                <select class="form-control form-control-sm" id="format"
+                                                    onchange={{action 'updateValue' }}>
                                                     <option value=""></option>
-                                                    <option value="Paperback" selected={{eq value "Paperback" }}>Paperback</option>
-                                                    <option value="Hardcover" selected={{eq value "Hardcover" }}>Hardcover</option>
-                                                    <option value="E-Book" selected={{eq value "E-Book" }}>E-Book</option>
+                                                    <option value="Paperback" selected={{eq value "Paperback" }}>
+                                                        Paperback</option>
+                                                    <option value="Hardcover" selected={{eq value "Hardcover" }}>
+                                                        Hardcover</option>
+                                                    <option value="E-Book" selected={{eq value "E-Book" }}>E-Book
+                                                    </option>
                                                 </select>
 
                                                 <input id="form1" min="0" name="quantity" value="1" type="number"
