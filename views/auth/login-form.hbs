@@ -1,20 +1,28 @@
 <div class="bg-navbar"></div>
 <div class="container loginForm">
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input required type="text" class="form-control" id="email" name="email">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h1>Login</h1>
+            <form action="/login" method="POST">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input required type="text" class="form-control" id="email" name="email">
+                </div>
+                <div class="mb-5">
+                    <label for="password" class="form-label">Password</label>
+                    <input required type="password" class="form-control" id="password" name="password">
+                </div>
+
+                <button type="submit" class="btn btn-outline-dark">Submit</button>
+
+                {{#if errorMessage}}
+                <div id="errorMessage">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+            </form>
+            <div class="col-3"></div>
         </div>
-        <div>
-            <label for="password" class="form-label">Password</label>
-            <input required type="password" class="form-control" id="password" name="password">
-        </div>
-        <button type="submit" class="btn btn-outline-secondary">Submit</button>
-        {{#if errorMessage}}
-        <div id="errorMessage">
-            <p>{{errorMessage}}</p>
-        </div>
-        {{/if}}
-    </form>
+    </div>
 </div>
