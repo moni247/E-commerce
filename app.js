@@ -7,16 +7,11 @@ const app = express();
 
 require("./config/session.config")(app)
 
-require("./config")(app);
+require("./config")(app)
 
-const projectName = 'Nike | Shop'
-app.locals.appTitle = `${projectName}`
+const { localsSetter } = require('./middleware/locals-setter')
+app.use(localsSetter)
 
-app.locals.globalIsLoggedIn = false
-
-app.locals.userId
-
-// app.locals.infoUser
 
 const index = require("./routes/index.routes");
 

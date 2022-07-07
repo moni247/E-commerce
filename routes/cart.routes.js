@@ -11,16 +11,18 @@ router.get('/profile/:user_id/payment', isLoggedIn, checkRole('USER'), (req, res
         .populate('user')
         .populate('items.product')
         .then(cart => {
+            if (cart.items.length === 0) res.render('cart/empty-cart')
+            else {
+                let total = 0
+                let inCart = 0
 
-            let total = 0
-            let inCart = cart.items.length
+                cart.items.forEach(item => {
+                    inCart += item.quantity
+                    total += Number(item.product.price) * item.quantity
+                })
 
-            cart.items.forEach(item => {
-                total += Number(item.product.price)
-            })
-            console.log('carrito', cart)
-            console.log('productos', cart.items[0].product.name)
-            res.render('cart/payment-cart', { cart, total, inCart })
+                res.render('cart/payment-cart', { cart, total, inCart })
+            }
         })
         .catch(error => next(new Error(error)))
 
@@ -33,10 +35,38 @@ router.post('/add-to-cart/:product_id', isLoggedIn, checkRole('USER'), (req, res
 
     Cart
         .findOne({ user: req.session.currentUser._id })
-        .then(cart => Cart.findByIdAndUpdate(cart._id, { $push: { items: { product: product_id, quantity: 1 } } }))
+        .then(({ _id, items }) => {
+
+            const itemsCopy = [...items]
+
+            let alredyIn = false
+
+            itemsCopy.forEach(item => {
+                if (item.product._id.equals(product_id)) {
+                    item.quantity++
+                    alredyIn = true
+                }
+            })
+
+            const query = alredyIn ? { items: itemsCopy } : { $push: { items: { product: product_id } } }
+
+            return Cart.findByIdAndUpdate(_id, query)
+        })
         .then(() => res.redirect('/products/women'))
         .catch(error => next(new Error(error)))
 
+})
+
+//remove product from cart
+router.post('/remove-from-cart/:product_id', isLoggedIn, checkRole('USER'), (req, res, next) => {
+
+    const { product_id } = req.params
+
+    Cart
+        .findOne({ user: req.session.currentUser._id })
+        .then(cart => Cart.findByIdAndUpdate(cart._id, { $pull: { items: { product: product_id } } }))
+        .then(() => res.redirect('/profile/:user_id/payment'))
+        .catch(error => next(new Error(error)))
 })
 
 module.exports = router
