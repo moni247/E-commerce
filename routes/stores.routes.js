@@ -32,42 +32,45 @@ router.get("/", (req, res, next) => {
 })
 
 //edit store
-router.get("/:store_id/edit", (req, res, next) => {
+router.get("/:store_id/edit", isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
 
     const { store_id } = req.params
 
     Store
         .findById(store_id)
-        .then(store => res.render("store/edit-store", store))
+        .then(store => {
+            console.log('objeto', store)
+            res.render("store/edit-store", store)
+        })
         .catch(error => next(new Error(error)))
 
 })
 
-router.post("/:store_id/edit", (req, res, next) => {
+router.post("/:store_id/edit", isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
 
     const { store_id } = req.params
-    const { name, address, schedule, latitude, longitude } = req.body
-
+    const { name, street, number, city, country, zipCode, schedule, latitude, longitude } = req.body
+    
     const location = {
         type: 'Point',
         coordinates: [latitude, longitude]
     }
-
+    
     Store
-        .findById(store_id, { name, address, schedule, location })
-        .then(store => res.render("store/edit-store", store))
+        .findByIdAndUpdate(store_id, { name, address: { street, number, city, country, zipCode }, schedule, location })
+        .then(store => res.redirect("/admin/stores"))
         .catch(error => next(new Error(error)))
 
 })
 
 //delete store
-router.get("/:store_id/delete", (req, res, next) => {
+router.post("/:store_id/delete", isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
 
     const { store_id } = req.params
 
     Store
         .findByIdAndDelete(store_id)
-        .then(() => res.redirect('/stores'))
+        .then(() => res.redirect('/admin/stores'))
         .catch(error => next(new Error(error)))
 })
 

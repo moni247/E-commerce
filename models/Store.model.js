@@ -20,7 +20,7 @@ const storeSchema = new Schema(
                 maxlength: [4, "Invalid country acronym"],
                 uppercase: true
             },
-            postalCode: {
+            zipCode: {
                 type: String,
             },
             

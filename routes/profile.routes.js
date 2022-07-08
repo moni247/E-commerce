@@ -8,7 +8,7 @@ const uploader = require('../config/cloudinary.config')
 const { isLoggedIn, checkRole } = require('../middleware/route-guard')
 const { rolesChecker } = require('./../utils/roles-checker')
 
-//render profile-view
+//render profile
 router.get('/:user_id', isLoggedIn, (req, res, next) => {
 
     const { user_id } = req.params
@@ -24,26 +24,33 @@ router.get('/:user_id', isLoggedIn, (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
-//render edit-profile-form
+//edit profile
 router.get('/:user_id/edit', isLoggedIn, checkRole('USER', 'ADMIN'), (req, res, next) => {
 
     const { user_id } = req.params
 
-    Product
+    User
         .findById(user_id)
-        .then(user => res.render('profile/edit-profile', { user }))
+        .then(user => res.render('profile/edit-profile', user))
         .catch(error => next(new Error(error)))
 })
 
-router.post('/:user_id/edit', isLoggedIn, checkRole('USER', 'ADMIN'), (req, res, next) => {
+router.post('/:user_id/edit', isLoggedIn, checkRole('USER', 'ADMIN'), uploader.single('imgUrl'), (req, res, next) => {
 
     const { username, email } = req.body
     const { user_id } = req.params
 
-    Product
-        .findByIdAndUpdate(user_id, { username, email, email, image: [req.file.path] })
-        .then(user => res.redirect(`/profile/${user._id}`))
-        .catch(error => next(new Error(error)))
+    if (req.file) {
+        User
+            .findByIdAndUpdate(user_id, { username, email, image: req.file.path })
+            .then(user => res.redirect(`/profile/${user._id}`))
+            .catch(error => next(new Error(error)))
+    } else {
+        User
+            .findByIdAndUpdate(user_id, { username, email})
+            .then(user => res.redirect(`/profile/${user._id}`))
+            .catch(error => next(new Error(error)))
+    }
 })
 
 module.exports = router

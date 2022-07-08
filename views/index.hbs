@@ -99,10 +99,11 @@
         <div class="col-md-4">
             {{#each stores}}
             <h3>{{name}}</h3>
-            <p>{{address.street}}, {{address.number}}</p>
-            <p>{{address.city}}, {{address.postalCode}}, {{address.country}}</p>
+            <p>{{address.street}}, {{address.number}}, {{address.zipCode}}</p>
+            <p>{{address.city}}, {{address.country}}</p>
             <span>Close at {{schedule}} </span>
             <hr>
+            <br>
             {{/each}}
         </div>
     </div>

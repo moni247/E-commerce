@@ -1,24 +1,25 @@
-<div class="container">
+<div class="container upper">
     <div class="row">
         {{#each stores}}
-        <div class="col-6">
+        <div class="col-3">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">{{name}}</h5>
-                            <p class="card-text">{{address}}</p>
+                            <p class="card-text">{{address.street}}, {{address.number}}, {{address.zipCode}}</p>
+                            <p class="card-text">{{address.city}}, {{address.country}}</p>
                             <p class="card-text">{{schedule}}</p>
                             <p class="card-text">{{latitude}}</p>
                             <p class="card-text">{{longitude}}</p>
                         </div>
-                        <p>
-                            <a href="/admin/stores/{{id}}/edit" class="btn btn-primary">Edit</a>
-
-                        <form action="/admin/stores/{{id}}/delete" method="POST">
-                            <input type="submit" value="Delete" class="btn btn-danger">
-                        </form>
-                        </p>
+                        <div class="buttons-all-store">
+                            <a href="/admin/stores/{{id}}/edit" class="btn btn-primary btn-edit">Edit</a>
+                            <form action="/admin/stores/{{id}}/delete" method="POST">
+                                <input type="submit" value="Delete" class="btn btn-danger" name="delete">
+                            </form>
+                        </div>
+                        <br><br>
 
                     </div>
                 </div>

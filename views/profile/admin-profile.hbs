@@ -8,8 +8,10 @@
             <div class="pro-img"><img src="{{image}}" alt="{{username}}"></div>
             <h3 class="m-b-0">{{username}}</h3>
             <p>{{email}}</p>
-            <p>{{country}}</p>
-            <p>{{postalCode}}</p>
+            <a href="/profile/{{id}}/edit" class="m-t-10 waves-effect waves-dark btn btn-outline-dark btn-md btn-rounded"
+                data-abc="true">Edit profile</a>
+            <br>
+            <br>
             <a href="/admin/products" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded"
                 data-abc="true">All products</a>
             <a href="/admin/products/create" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded"
@@ -18,9 +20,8 @@
                 data-abc="true">All Stores</a>
             <a href="/admin/stores/create" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded"
                 data-abc="true">Create store</a>
-            <a href="/profile/{{id}}/edit" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded"
-                data-abc="true">Edit profile</a>
-            <div class="row text-center m-t-20">
+        
+            <div class="row text-center m-t-20 mt-5">
                 <div class="col-lg-4 col-md-4 m-t-20">
                     <h3 class="m-b-0 font-light">34</h3><small>Articles cart</small>
                 </div>

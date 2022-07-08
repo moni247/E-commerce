@@ -2,6 +2,7 @@ const router = require('express').Router()
 
 const Product = require('./../models/Product.model')
 
+//products list
 router.get('/', (req, res, next) => {
 
     Product
@@ -10,6 +11,7 @@ router.get('/', (req, res, next) => {
         .catch(error => next(new Error(error)))
 })
 
+//product details
 router.get('/:product_id', (req, res, next) => {
 
     const { product_id } = req.params

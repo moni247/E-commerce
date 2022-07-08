@@ -82,6 +82,19 @@ h1 {
   padding-bottom: 5rem;
 }
 
+.upper {
+  margin-top: 3rem;
+}
+
+.buttons-all-store {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btn-edit {
+  margin-right: 1rem;
+}
 
 #my-map {
   margin-top: 2rem;
@@ -91,6 +104,12 @@ h1 {
 
 .map {
   margin-bottom: 5rem;
+}
+
+.card {
+  margin-top: 2rem;
+  margin-right: 1rem;
+  border: none;
 }
 
 footer {
@@ -105,10 +124,6 @@ footer {
 
 .card-registration .select-arrow {
   top: 13px;
-}
-
-.bg-grey {
-  background-color: #ffffff;
 }
 
 @media (max-width: 767px) {
