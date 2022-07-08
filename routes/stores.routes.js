@@ -9,7 +9,7 @@ router.get('/create', isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
 
 router.post("/create", isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
 
-    const { name, address, schedule, latitude, longitude } = req.body
+    const { name, street, number, city, country, zipCode, schedule, latitude, longitude } = req.body
 
     const location = {
         type: 'Point',
@@ -17,7 +17,7 @@ router.post("/create", isLoggedIn, checkRole('ADMIN'), (req, res, next) => {
     }
 
     Store
-        .create({ name, address, schedule, location })
+        .create({ name, street, number, city, country, zipCode, schedule, location })
         .then(() => res.redirect('/admin/stores'))
         .catch(error => next(new Error(error)))
 })

@@ -18,7 +18,7 @@ router.get('/profile/:user_id/payment', isLoggedIn, checkRole('USER'), (req, res
 
                 cart.items.forEach(item => {
                     inCart += item.quantity
-                    total += Number(item.product.price) * item.quantity
+                    total += Number(item.product.price) * Number(item.quantity)
                 })
 
                 res.render('cart/payment-cart', { cart, total, inCart })
