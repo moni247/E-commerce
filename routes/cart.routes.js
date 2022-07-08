@@ -69,4 +69,9 @@ router.post('/remove-from-cart/:product_id', isLoggedIn, checkRole('USER'), (req
         .catch(error => next(new Error(error)))
 })
 
+//render successful-payment
+
+router.get('/successful-payment', (req, res, next) =>
+    res.render(res.render('cart/successful-payment')))
+
 module.exports = router
