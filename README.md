@@ -3,7 +3,6 @@
 | HTTP method | URI path                            | Description                         | Protected | User type          |
 | ----------- | ----------------------------------- | ----------------------------------- | --------- | ------------------ |
 | GET         | /                                   | render index page                   | false     | visitor/user/admin | 
-
 | GET         | /products/women                     | render woman products               | false     | visitor/user/admin | 
 | GET         | /products/women/:product_id         | render product details              | false     | visitor/user/admin | 
 | GET         | /register                           | render register form                | false     | visitor/user/admin | 
